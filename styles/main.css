@@ -1,0 +1,80 @@
+body {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+main {
+    width:100vw;
+    height:100vh;
+    background-image: url(https://picsum.photos/1920/1080);
+    background-size: cover;
+    
+}
+.containerForInterface {
+    width: 600px;
+    height: 329px;
+    margin: auto;
+    padding-top: 50%;
+    transform: translate(0 ,-50%);
+}
+.searchView {
+    display:none;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    
+}
+.resultView {
+    display:initial;
+    background-color:white;
+}
+
+.searchView__textAndButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 152px;
+}
+.searchView__textAndButton label {
+    padding-bottom:10px;
+    font-size:30px;
+    text-align: center;
+}
+.searchView input {
+    
+    width: 250px;
+    height: 40px;
+    border:2px solid black;
+    font-size:20px;
+}
+.searchView__btn-search {
+    width:20%;
+margin-top:25px;
+font-size:24px;
+}
+
+.resultView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    
+    
+}
+.resultView__info {
+    display:flex;
+    align-items: center;
+}
+.resultView__btn-return{   
+    position: absolute;
+    padding: 10px 38px;
+    font-size: 20px;
+    bottom: 10px;
+}
+.resultView__info img {
+margin-left:20px;
+}
