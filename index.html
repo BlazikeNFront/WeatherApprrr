@@ -8,30 +8,30 @@
 </head>
 <body>
  <main>
-    <section class = 'containerForInterface'>
-         <div class = 'searchView'>
-             <div class = 'searchView__textAndButton'>
+    <section class = 'containerForInterface' data-containerInterface>
+         <div class = 'searchView'data-searchView>
+             <div class = 'searchView__textAndButton' >
                 <label for = 'weatherInfo__searchInterface' class = 'weatherInfo__searchLabel'> Type city</label>
-                <input type = 'text' class = 'weatherInfo__searchInterface'>
-                <button class = 'searchView__btn-search'>Search</button>
+                <input type = 'text' class = 'weatherInfo__searchInterface'data-searchViewInput>
+                <button class = 'searchView__btn-search'  data-searchViewButton>Search</button>
             </div>
          </div>
 
 
          
-         <div class = 'resultView'>
-             <div class ='resultView__info'>
-                 <h1 class ='resultView__h1'>City</h1>
-                 <img src ='#' alt ='weather icon'>
+         <div class = 'resultView' data-resultView>
+             <div class ='resultView__info' data-resultInfo>
+                 <h1 class ='resultView__h1'data-city>City</h1>
+                 <img src ='#' alt ='weather icon' data-weatherIcon>
                 </div>
             <div class = 'resultView__temperatures'>
-                <h2 class ='resultView_h2'>Temperatures</h2>
-                <p class ='resultView__highestTemp'></p>
-                <p class ='resultView__lowestTemp'></p>
+                <h2 class ='resultView_h2' data-currentTemperetures>Current temperature</h2>
+                <p class ='resultView__highestTemp' data-highestTemp></p>
+                <p class ='resultView__lowestTemp' data-lowestTemp></p>
             </div>
       
 
-        <button class = 'resultView__btn-return'>Return</button>
+        <button class = 'resultView__btn-return' data-resultViewButton>Return</button>
 
     </div>
 

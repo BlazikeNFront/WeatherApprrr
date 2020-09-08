@@ -19,16 +19,13 @@ main {
     transform: translate(0 ,-50%);
 }
 .searchView {
-    display:none;
+    display:inherit;
     width: 100%;
     height: 100%;
     background-color: white;
     
 }
-.resultView {
-    display:initial;
-    background-color:white;
-}
+
 
 .searchView__textAndButton {
     display: flex;
@@ -56,7 +53,7 @@ font-size:24px;
 }
 
 .resultView {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     width: 100%;
