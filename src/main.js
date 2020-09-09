@@ -7,8 +7,8 @@ const domElements = {};
 const eventListeners = ()=>{
     domElements['searchViewInput'].addEventListener('keydown', onEnterSubmit)
     domElements['searchViewButton'].addEventListener('click', onClickSubmit)
-    domElements['resultViewButton'].addEventListener('keydown', onEnterSubmit)
-    domElements['resultViewButton'].addEventListener('click', onClickSubmit)
+   
+    domElements['resultViewButton'].addEventListener('click', returnToSearch)
 }
 
 
@@ -49,13 +49,67 @@ const initializeWeatherApp = () => {
 const onEnterSubmit = event => {
     if (event.key === "Enter") {
         let city = domElements['searchViewInput'].value
-        getWeather(city)
+        getWeather(city).then(data =>{console.log(data)})
+        
     }
     
     }
     const onClickSubmit= () => {
-    
+        viewTransition();
+
+        let city = domElements['searchViewInput'].value
+       
+        getWeather(city).then(data =>{
+            console.log(data)
+            changeView();
+            viewTransition();
+        });
+        
+        
+        
     }
 
 
-document.addEventListener('DOMContentLoaded',initializeWeatherApp)
+const viewTransition = () => {
+    if (domElements['containerInterface'].style.opacity ==='1' || domElements['containerInterface'].style.opacity === '') {
+      
+        domElements['containerInterface'].style.opacity = '0'
+    }
+    else {
+        domElements['containerInterface'].style.opacity ='1'
+        
+    }
+}
+const returnToSearch = () => {
+    viewTransition();
+    setTimeout(()=> {
+        changeView();
+        viewTransition();
+        
+    }, 1000)
+}
+
+const changeView = () => {
+
+    
+    if( domElements['searchView'].style.display === 'none'){
+       
+        domElements['searchView'].style.display = 'block';
+        domElements['resultView'].style.display = 'none';
+        return
+    }
+    if(domElements['resultView'].style.display !== 'flex'){
+        
+        domElements['resultView'].style.display = 'flex';
+        domElements['searchView'].style.display = 'none';
+        return
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded',()=> {
+    initializeWeatherApp();
+    
+
+
+})
