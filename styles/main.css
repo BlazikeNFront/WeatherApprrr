@@ -79,3 +79,10 @@ font-size:24px;
 .resultView__info img {
 margin-left:20px;
 }
+.maxMinTemp {
+    font-size:21px
+}
+.reusltView__icon {
+    width: 50%;
+    margin-left: 37%;
+}

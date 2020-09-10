@@ -28,7 +28,7 @@ const connectDOMElem = () => {
     scriptDOMElem('highestTemp');
     scriptDOMElem('lowestTemp');
     scriptDOMElem('resultInfo');
-    scriptDOMElem('data-currentTemperetures');
+    scriptDOMElem('currentTemperetures');
     
     
     
@@ -48,18 +48,35 @@ const initializeWeatherApp = () => {
 
 const onEnterSubmit = event => {
     if (event.key === "Enter") {
+        viewTransition();
         let city = domElements['searchViewInput'].value
-        getWeather(city).then(data =>{console.log(data)})
+        getWeather(city).then(data =>{console.log(data)
+        
+            domElements['city'].innerText = data['title'];
+            domElements['currentTemperetures'].innerText = `Current temperature : ${data['consolidated_weather'][0]['the_temp'].toFixed(1)}°C`;
+            domElements['weatherIcon'].src = `https://www.metaweather.com/static/img/weather/${data['consolidated_weather'][0]['weather_state_abbr']}.svg`;
+            domElements['highestTemp'].innerText = `Highest temperature: ${data['consolidated_weather'][0]['max_temp'].toFixed(1)}°C`;
+            domElements['lowestTemp'].innerText = `Lowest temperature: ${data['consolidated_weather'][0]['min_temp'].toFixed(1)}°C`;
+            console.log(data)
+            changeView();
+            viewTransition();
+        })
         
     }
     
     }
     const onClickSubmit= () => {
         viewTransition();
-
+      
         let city = domElements['searchViewInput'].value
        
         getWeather(city).then(data =>{
+           
+            domElements['city'].innerText = data['title'];
+            domElements['currentTemperetures'].innerText = `Current temperature : ${data['consolidated_weather'][0]['the_temp'].toFixed(1)}°C`;
+            domElements['weatherIcon'].src = `https://www.metaweather.com/static/img/weather/${data['consolidated_weather'][0]['weather_state_abbr']}.svg`;
+            domElements['highestTemp'].innerText = `Highest temperature: ${data['consolidated_weather'][0]['max_temp'].toFixed(1)}°C`;
+            domElements['lowestTemp'].innerText = `Lowest temperature: ${data['consolidated_weather'][0]['min_temp'].toFixed(1)}°C`;
             console.log(data)
             changeView();
             viewTransition();
