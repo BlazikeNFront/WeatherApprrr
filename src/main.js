@@ -1,19 +1,17 @@
 import {getWeather} from './apiServ.js';
-import {domElementsWithDataAttribue} from './DOMElem.js'
+//import {domElementsWithDataAttribue} from './DOMElem.js'
 
 class WeatherApp {
     constructor(){
         this.domElements = {};
-        this.connectDOMElem();
-        //this.eventListeners();
-        
+       // this.connectDOMElem();
+     //  this.domElementsWithDataAttribue();
     }
-    // u need to grab by data not by id
+    
     connectDOMElem = ()=> {
        
-        const listOfdataInDom = document.dataset;
-        console.log(listOfdataInDom)
-        this.domElements = domElementsWithDataAttribue(listOfdataInDom);
+        
+        
     }
     returnToSearch = () => {
         this.viewTransition();
@@ -87,8 +85,9 @@ class WeatherApp {
 
 }
 
-// u need to do list of data grab properties - document dataset and then grab in for loop elements and select DOM elements using backticks ` ` and passing  variable into it 
+
 console.log(document.querySelector(`[data-grab = 'resultViewButton'`))
+
 
 
 /*const eventListeners = ()=>{
@@ -213,6 +212,22 @@ const onEnterSubmit = event => {
 
 document.addEventListener('DOMContentLoaded',()=> {
     new WeatherApp();
+   const listOfAttributes = Array.from(document.querySelectorAll('[data-grab]')).map(item =>item.getAttribute('data-grab'));
+  
+
+
+ //code below create object domElements with all elements that have data attribue... u can access them by their attributes values... for example domElements['weatherIcon'] u should move it to DOMElem file and see if it will work in class constructor
+    const domElementsWithDataAttribue = () => {
+        
+    
+        for (let item of listOfAttributes){
+            const domElements = {}
+            domElements[item] = document.querySelector(`[data-grab ='${item}']`);
+        }
+        console.log(domElements)
+        return domElements
+    }
+   
     
 
 
