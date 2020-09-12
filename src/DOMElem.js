@@ -1,15 +1,13 @@
 
-const grabDOMElem = (data) =>{
-    return document.querySelector(`[data-grab = ${data}]`)
-}
 
 
 
-export const domElementsWithDataAttribue = (listOfdataInDom) => {
-    const domElements = {}
-
-    for (data of listOfdataInDom){
-        domElements[data] = grabDOMElem(data);
+export  const domElementsWithDataAttribue = () => {
+        
+    
+    for (let item of listOfAttributes){
+        const domElements = {}
+        domElements[item] = document.querySelector(`[data-grab ='${item}']`);
     }
     console.log(domElements)
     return domElements
