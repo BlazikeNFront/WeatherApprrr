@@ -49,6 +49,7 @@ main {
     height: 40px;
     border:2px solid black;
     font-size:20px;
+    color:gray;
 }
 .searchView__btn-search {
     width:20%;
@@ -86,3 +87,4 @@ margin-left:20px;
     width: 50%;
     margin-left: 37%;
 }
+
